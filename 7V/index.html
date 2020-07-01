@@ -1,0 +1,39 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <title>7V</title>
+</head>
+
+<body>
+    <div id="App"></div>
+    <script type="text/babel">
+        class App extends React.Component {
+            clickHandle(e) {
+              console.log(e.target);
+            }
+            overHandle(e){
+                console.log(e.pageX)
+            }
+            copyHandle(e){
+                alert('Try to be orignal for once!')
+            }
+            render() {
+                return (
+                    <div>
+                        <button onClick={this.clickHandle}>ClickME</button>
+                        <button onMouseOver={this.overHandle}>Hover</button>
+                        <p onCopy={this.copyHandle}>Don't copy this please.</p>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(<App />, document.getElementById('App'))
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <title>8V</title>
+</head>
+
+<body>
+    <div id="App"></div>
+
+    <script type="text/babel">
+        class App extends React.Component {
+            constructor() {
+                super()
+                this.state = {
+                    name: 'Jane',
+                    age: 35
+                }
+                console.log(this)
+                this.clickHandle = this.clickHandle.bind(this)
+            }
+            clickHandle(e){
+                this.setState({
+                    name:'John'
+                })
+                console.log(this.state);
+                
+            }
+            clickHandleTwo= (e) => {
+                console.log(`Using arrow functions ${this.state.name}`)
+            }
+            render() {
+                return (
+                    <div>
+                        <button onClick={this.clickHandle}>PrintSomething</button>
+                        <button onClick={this.clickHandleTwo}>PrintSomething UsingArrow</button>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(<App/>,document.getElementById('App'))
+    </script>
+</body>
+
+</html>
